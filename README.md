@@ -86,3 +86,19 @@ This project demonstrates brute-force enumeration, combinatorial search spaces, 
 ## Links
 
 - [GitHub Repository](https://github.com/pallasivasai/Password-Cracker)
+
+
+## 🏗️ Architecture
+
+```mermaid
+flowchart TD
+    A[Local Target Password] --> B[Configured Character Set]
+    B --> C[Candidate Length 1..8]
+    C --> D[itertools.product]
+    D --> E[Candidate String]
+    E --> F{Exact Match?}
+    F -->|No| D
+    F -->|Yes| G[Return Attempts + Elapsed Time]
+```
+
+The diagram reflects the current local educational brute-force implementation and its 1–8 character candidate generation loop.
